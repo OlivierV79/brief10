@@ -1,0 +1,30 @@
+<th:block th:fragment="header">
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">ForkNow</div>
+
+        <a
+          th:href="@{restaurants-list}"
+          href="restaurants-list.html"
+          class="back-button"
+          >Liste des restaurants</a
+        >
+        <a
+          th:href="@{restaurants-creation}"
+          href="restaurants-creation.html"
+          class="back-button"
+          >Creer restaurants</a
+        >
+        <a
+          th:href="@{restaurants-gestion}"
+          href="restaurants-gestion.html"
+          class="back-button"
+          >Gérer restaurants</a
+        >
+
+        <a th:href="@{/logout}" class="back-button">Logout</a>
+      </div>
+    </div>
+  </header>
+</th:block>

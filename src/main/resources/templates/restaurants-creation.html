@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Création restaurant</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .container-create {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: #fd9b3a;
+        padding: 20px 0;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .back-button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .back-button:hover {
+        background-color: #555;
+        transform: scale(1.05);
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        margin: 40px 0;
+        color: #333;
+      }
+
+      .container-create label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 8px;
+        color: #666;
+      }
+
+      .container-create input[type="text"],
+      .container-create input[type="password"],
+      .container-create input[type="email"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container-create input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background-color: #fd9b3a;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .container-create input[type="email"] button:hover {
+        background-color: #ff8c00;
+      }
+    </style>
+  </head>
+  <body>
+    <div th:replace="header :: header"></div>
+
+    <div class="container-create">
+      <h1>Création d'un nouveau restaurant</h1>
+
+      <form
+        th:action="@{/restaurants/save}"
+        action="/restaurants/save"
+        method="post"
+        th:object="${shop}"
+      >
+        <label for="name">name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          th:field="*{name}"
+        />
+
+        <input type="submit" value="Enregistrer" />
+      </form>
+    </div>
+  </body>
+</html>
