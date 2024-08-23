@@ -13,7 +13,6 @@ public interface UserService {
     void saveUser(RegisterDto userMapping);
 
     Optional<User> findByUsername(String username);
-
     Optional<User> findByEmail(String email);
     Optional<User> from(Authentication authentication);
 }

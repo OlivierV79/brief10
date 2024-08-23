@@ -103,9 +103,9 @@ public class AuthController {
     public String registerRestaurant(@Valid @ModelAttribute RegisterRestaurantDto restaurantMapping, Authentication authentication) {
         System.out.println("Ok");
 
-        System.out.println(authentication.getName());
         
-        restaurantService.saveRestaurant(restaurantMapping);
+        
+        restaurantService.saveRestaurant(restaurantMapping, authentication);
         
         return "redirect:/restaurants-list?success=restaurantRegistred";
     }
