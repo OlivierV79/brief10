@@ -102,9 +102,7 @@ public class AuthController {
     @PostMapping("/restaurants/save")
     public String registerRestaurant(@Valid @ModelAttribute RegisterRestaurantDto restaurantMapping, Authentication authentication) {
         System.out.println("Ok");
-
-        
-        
+              
         restaurantService.saveRestaurant(restaurantMapping, authentication);
         
         return "redirect:/restaurants-list?success=restaurantRegistred";
