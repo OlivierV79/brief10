@@ -7,7 +7,7 @@ jobs:
   get-version:
     uses: shiipou/github-actions/.github/workflows/get-version.yml@main
     with:
-      release-branches: '^(main)'
+      release-branches: "^(main)"
 
   build:
     name: Spring build
@@ -19,11 +19,11 @@ jobs:
     steps:
       - name: Print Version
         run: echo "${{ needs.get-version.outputs.version}}"
-    
+
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
+          distribution: "temurin"
           java-version: 17
 
       - name: Setup Gradle
@@ -34,8 +34,8 @@ jobs:
 
       - name: Build with Gradle
         env:
-          VERSION : "${{ needs.get-version.outputs.version}}"
+          VERSION: "${{ needs.get-version.outputs.version}}"
         run: ./gradlew bootJar
-        
+
       - name: List build artifacts
         run: ls -lia build/libs
