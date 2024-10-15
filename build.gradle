@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'fr.simplon2024'
-version = '0.0.1-SNAPSHOT'
+version = System.getenv("VERSION") ?: '0.0.1-snapshot"
 
 java {
 	toolchain {
